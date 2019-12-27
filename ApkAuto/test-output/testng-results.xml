@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="3" total="4" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="80312" started-at="2019-12-27T17:42:55Z" finished-at="2019-12-27T17:44:15Z">
+  <suite name="Default suite" duration-ms="3826" started-at="2019-12-27T18:13:00Z" finished-at="2019-12-27T18:13:04Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="80312" started-at="2019-12-27T17:42:55Z" finished-at="2019-12-27T17:44:15Z">
+    <test name="Default test" duration-ms="3826" started-at="2019-12-27T18:13:00Z" finished-at="2019-12-27T18:13:04Z">
       <class name="TestNG.TestNGTests">
-        <test-method status="PASS" signature="startAppium()[pri:0, instance:TestNG.TestNGTests@31ef45e3]" name="startAppium" is-config="true" duration-ms="36991" started-at="2019-12-27T17:42:18Z" finished-at="2019-12-27T17:42:55Z">
+        <test-method status="PASS" signature="startAppium()[pri:0, instance:TestNG.TestNGTests@31ef45e3]" name="startAppium" is-config="true" duration-ms="79512" started-at="2019-12-27T18:11:40Z" finished-at="2019-12-27T18:13:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startAppium -->
-        <test-method status="PASS" signature="test4()[pri:0, instance:TestNG.TestNGTests@31ef45e3]" name="test4" duration-ms="80293" started-at="2019-12-27T17:42:55Z" finished-at="2019-12-27T17:44:15Z">
+        <test-method status="PASS" signature="test1()[pri:0, instance:TestNG.TestNGTests@31ef45e3]" name="test1" duration-ms="3809" started-at="2019-12-27T18:13:00Z" finished-at="2019-12-27T18:13:04Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test4 -->
-        <test-method status="PASS" signature="closeAppium()[pri:0, instance:TestNG.TestNGTests@31ef45e3]" name="closeAppium" is-config="true" duration-ms="1061" started-at="2019-12-27T17:44:15Z" finished-at="2019-12-27T17:44:16Z">
+        </test-method> <!-- test1 -->
+        <test-method status="PASS" signature="closeAppium()[pri:0, instance:TestNG.TestNGTests@31ef45e3]" name="closeAppium" is-config="true" duration-ms="4172" started-at="2019-12-27T18:13:04Z" finished-at="2019-12-27T18:13:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeAppium -->

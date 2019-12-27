@@ -1,8 +1,11 @@
 package TestNG;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -63,13 +66,17 @@ public class Methods
 	public void dismissAdd(AndroidDriver<?> dr)
 	{
 		w = new WebDriverWait(dr, 30);
-		w.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.aaks.qaautomation:id/adView")));
 		dr.findElement(By.id("com.aaks.qaautomation:id/adView")).click();
 	}
 	
-	public void getScreen()
+	public void getScreen() throws Exception
 	{
+		String fileName = new SimpleDateFormat("yyyyMMddHHmm'.png'").format(new Date());
 		File scrFile = ((TakesScreenshot)dr).getScreenshotAs(OutputType.FILE);
+		File DestFile= new File(fileName);
+
+        //Copy file at destination
+        FileUtils.copyFile(scrFile, DestFile);
 		scrFile.toPath();
 	}
 }

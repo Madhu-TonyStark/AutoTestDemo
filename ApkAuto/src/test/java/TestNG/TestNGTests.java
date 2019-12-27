@@ -35,13 +35,12 @@ public class TestNGTests
 	public WebDriverWait w;
 	public Methods m;
 	
-  @Test (enabled = false)
+  @Test (enabled = true)
   public void test1() 
   {
-	  w = new WebDriverWait(dr, 20);
-	  dr.launchApp();
+	  w = new WebDriverWait(dr, 50);
+
 	  //Scenarion-1: Test to confirm an employee can't be added without any part of the form incomplete and confirm the error messages
-	  
 	  MobileElement add_emp_btn = (MobileElement) dr.findElement(By.id("com.aaks.qaautomation:id/fab"));
 	  w.until(ExpectedConditions.visibilityOf(add_emp_btn));
 	  
@@ -54,7 +53,6 @@ public class TestNGTests
 	  first_name_txt.sendKeys("John");
 	  
 	  create_btn.click();
-	  
 	  try
 	  {
 		  if(dr.findElement(By.id("com.aaks.qaautomation:id/validationLastNameTextView")).isDisplayed() 
@@ -79,7 +77,7 @@ public class TestNGTests
   @Test (enabled = false)
   public void test2() 
   {
-	  w = new WebDriverWait(dr, 20);
+	  w = new WebDriverWait(dr, 50);
 	  //Scenarion-2: Test to delete an employee and confirm it's been removed
 	  w.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.aaks.qaautomation:id/fab")));
 	  String emp_name = m.addEmployee(dr);
@@ -118,7 +116,7 @@ public class TestNGTests
   @Test (enabled = false)
   public void test3() 
   {
-	  w = new WebDriverWait(dr, 20);
+	  w = new WebDriverWait(dr, 50);
 	  //Scenarion-3: Test to confirm an advertisement appears after every two employees are added
 	  try 
 	  {
@@ -145,10 +143,10 @@ public class TestNGTests
 	  
   }
   
-  @Test (enabled = true)
+  @Test (enabled = false)
   public void test4()
   {
-	  w = new WebDriverWait(dr, 20);
+	  w = new WebDriverWait(dr, 50);
 	  //Scenarion-4: Test with a loop that adds 9 users. Then delete users 1, 2, "10" (in this order), and then dismiss all of the ads
 	  try
 	  {
@@ -182,21 +180,28 @@ public class TestNGTests
 			  et.log(LogStatus.FAIL, "Contact deletion failed");
 		  }
 		  
-		  //dismiss all of the ads
-		  ArrayList<MobileElement> adds_list = (ArrayList<MobileElement>) dr.findElements(By.id("com.aaks.qaautomation:id/adView"));
-		  for(int i=0; i<adds_list.size();i++)
+		  try
 		  {
-			  adds_list.get(i).click();
-			  m.dismissAdd(dr);
+			  //dismiss all of the ads
+			  ArrayList<MobileElement> adds_list = (ArrayList<MobileElement>) dr.findElements(By.id("com.aaks.qaautomation:id/adView"));
+			  for(int i=0; i<adds_list.size();i++)
+			  {
+				  adds_list.get(i).click();
+				  m.dismissAdd(dr);
+			  }
+			  System.out.println("All Adds dismissed");
+			  if(dr.findElement(By.id("com.aaks.qaautomation:id/adView")).isDisplayed())
+			  {
+				  et.log(LogStatus.PASS, "Adds were dismissed");
+			  }
+			  else
+			  {
+				  et.log(LogStatus.FAIL, "Adds were not dismissed");
+			  }
 		  }
-		  System.out.println("All Adds dismissed");
-		  if(dr.findElement(By.id("com.aaks.qaautomation:id/adView")).isDisplayed())
+		  catch(Exception e)
 		  {
 			  et.log(LogStatus.PASS, "Adds were dismissed");
-		  }
-		  else
-		  {
-			  et.log(LogStatus.FAIL, "Adds were not dismissed");
 		  }
 		  
 	  }
@@ -204,6 +209,7 @@ public class TestNGTests
 	  {
 		  et.log(LogStatus.ERROR, "Error @ Advertisement dismiss Test" + e.getMessage());
 	  }
+	  
   }
   
   @BeforeSuite
@@ -244,7 +250,7 @@ public class TestNGTests
 	  er.endTest(et);
 	  er.flush();
 	  //Application Close
-//	  dr.resetApp();
+	  dr.resetApp();
 	  dr.closeApp();
   }
 
