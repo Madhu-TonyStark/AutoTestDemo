@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="3" total="4" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="3826" started-at="2019-12-27T18:13:00Z" finished-at="2019-12-27T18:13:04Z">
+  <suite name="Default suite" duration-ms="111033" started-at="2019-12-30T10:48:11Z" finished-at="2019-12-30T10:50:02Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="3826" started-at="2019-12-27T18:13:00Z" finished-at="2019-12-27T18:13:04Z">
+    <test name="Default test" duration-ms="111033" started-at="2019-12-30T10:48:11Z" finished-at="2019-12-30T10:50:02Z">
       <class name="TestNG.TestNGTests">
-        <test-method status="PASS" signature="startAppium()[pri:0, instance:TestNG.TestNGTests@31ef45e3]" name="startAppium" is-config="true" duration-ms="79512" started-at="2019-12-27T18:11:40Z" finished-at="2019-12-27T18:13:00Z">
+        <test-method status="PASS" signature="startAppium()[pri:0, instance:TestNG.TestNGTests@31ef45e3]" name="startAppium" is-config="true" duration-ms="29388" started-at="2019-12-30T10:47:42Z" finished-at="2019-12-30T10:48:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startAppium -->
-        <test-method status="PASS" signature="test1()[pri:0, instance:TestNG.TestNGTests@31ef45e3]" name="test1" duration-ms="3809" started-at="2019-12-27T18:13:00Z" finished-at="2019-12-27T18:13:04Z">
+        <test-method status="PASS" signature="test1()[pri:0, instance:TestNG.TestNGTests@31ef45e3]" name="test1" duration-ms="4167" started-at="2019-12-30T10:48:11Z" finished-at="2019-12-30T10:48:15Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test1 -->
-        <test-method status="PASS" signature="closeAppium()[pri:0, instance:TestNG.TestNGTests@31ef45e3]" name="closeAppium" is-config="true" duration-ms="4172" started-at="2019-12-27T18:13:04Z" finished-at="2019-12-27T18:13:08Z">
+        <test-method status="PASS" signature="test2()[pri:0, instance:TestNG.TestNGTests@31ef45e3]" name="test2" duration-ms="11873" started-at="2019-12-30T10:48:15Z" finished-at="2019-12-30T10:48:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2 -->
+        <test-method status="PASS" signature="test3()[pri:0, instance:TestNG.TestNGTests@31ef45e3]" name="test3" duration-ms="16167" started-at="2019-12-30T10:48:27Z" finished-at="2019-12-30T10:48:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test3 -->
+        <test-method status="PASS" signature="test4()[pri:0, instance:TestNG.TestNGTests@31ef45e3]" name="test4" duration-ms="78806" started-at="2019-12-30T10:48:43Z" finished-at="2019-12-30T10:50:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test4 -->
+        <test-method status="PASS" signature="closeAppium()[pri:0, instance:TestNG.TestNGTests@31ef45e3]" name="closeAppium" is-config="true" duration-ms="3817" started-at="2019-12-30T10:50:02Z" finished-at="2019-12-30T10:50:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeAppium -->

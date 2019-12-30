@@ -51,7 +51,8 @@ public class Methods
 			w.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.aaks.qaautomation:id/adView")));
 		}
 		catch(Exception e)
-		{}
+		{e.printStackTrace();
+		}
 		return emp_name;
 	}
 	

@@ -9,6 +9,9 @@ import com.relevantcodes.extentreports.LogStatus;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.pagefactory.AndroidBy;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -38,6 +41,7 @@ public class TestNGTests
   @Test (enabled = true)
   public void test1() 
   {
+	  et = er.startTest("test1");
 	  w = new WebDriverWait(dr, 50);
 
 	  //Scenarion-1: Test to confirm an employee can't be added without any part of the form incomplete and confirm the error messages
@@ -60,10 +64,13 @@ public class TestNGTests
 				  || dr.findElement(By.id("com.aaks.qaautomation:id/validationProjectTextView")).isDisplayed()
 			  || dr.findElement(By.id("com.aaks.qaautomation:id/validationFirstNameTextView")).isDisplayed())
 				  {
-					  et.log(LogStatus.PASS, "Error Messsage Checking test is Passed");
+					  
+			  et.log(LogStatus.PASS, "Error Messsage Checking test is Passed");
+			  dr.pressKey(new KeyEvent(AndroidKey.BACK));
 				  }
 		  else
 		  {
+			  dr.pressKey(new KeyEvent(AndroidKey.BACK));
 			  et.log(LogStatus.FAIL, "Error Messsage Checking test is Failed");
 		  }
 	  }
@@ -71,15 +78,22 @@ public class TestNGTests
 	  {
 		  et.log(LogStatus.ERROR, "Error @ Error Message validation test" + e.getMessage());
 	  }
+	  er.endTest(et);
+	  er.flush();
 	  
   }
   
-  @Test (enabled = false)
+  @Test (enabled = true)
   public void test2() 
   {
+	  et = er.startTest("Test2");
 	  w = new WebDriverWait(dr, 50);
 	  //Scenarion-2: Test to delete an employee and confirm it's been removed
-	  w.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.aaks.qaautomation:id/fab")));
+	  try {
+		w.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.aaks.qaautomation:id/fab")));
+	} catch (Exception e1) {
+		// TODO Auto-generated catch block
+	}
 	  String emp_name = m.addEmployee(dr);
 	  
 	  try
@@ -111,11 +125,14 @@ public class TestNGTests
 	  {
 		  et.log(LogStatus.ERROR, "Error @ Deleting employee" + e.getMessage());
 	  }
+	  er.endTest(et);
+	  er.flush();
   }
   
-  @Test (enabled = false)
+  @Test (enabled = true)
   public void test3() 
   {
+	  et = er.startTest("Test3");
 	  w = new WebDriverWait(dr, 50);
 	  //Scenarion-3: Test to confirm an advertisement appears after every two employees are added
 	  try 
@@ -140,12 +157,14 @@ public class TestNGTests
 	  {
 		  et.log(LogStatus.ERROR, "Error @ Advertisement Test");
 	  }
-	  
+	  er.endTest(et);
+	  er.flush();
   }
   
-  @Test (enabled = false)
+  @Test (enabled = true)
   public void test4()
   {
+	  et = er.startTest("Test4");
 	  w = new WebDriverWait(dr, 50);
 	  //Scenarion-4: Test with a loop that adds 9 users. Then delete users 1, 2, "10" (in this order), and then dismiss all of the ads
 	  try
@@ -210,6 +229,8 @@ public class TestNGTests
 		  et.log(LogStatus.ERROR, "Error @ Advertisement dismiss Test" + e.getMessage());
 	  }
 	  
+	  er.endTest(et);
+	  er.flush();
   }
   
   @BeforeSuite
@@ -239,7 +260,7 @@ public class TestNGTests
       
       //Reports Creation
       er = new ExtentReports("ReportFile.html");
-      et = er.startTest("Test Application Tests");
+      
       dr.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);      
   }
 
@@ -247,8 +268,6 @@ public class TestNGTests
   public void closeAppium() throws Exception
   {
 	  //Report Closure
-	  er.endTest(et);
-	  er.flush();
 	  //Application Close
 	  dr.resetApp();
 	  dr.closeApp();
